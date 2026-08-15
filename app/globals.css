@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+:root {
+  --midnight: #07080b;
+  --near-black: #0c0d10;
+  --ivory: #f3ecdf;
+  --ivory-dim: #cfc6b4;
+  --saffron: #ff7722;
+  --indian-green: #16874a;
+  --gold: #c9a24b;
+  --sepia: #8a7256;
+  --line: rgba(243, 236, 223, 0.14);
+}
+
+@theme inline {
+  --color-midnight: var(--midnight);
+  --color-near-black: var(--near-black);
+  --color-ivory: var(--ivory);
+  --color-ivory-dim: var(--ivory-dim);
+  --color-saffron: var(--saffron);
+  --color-indian-green: var(--indian-green);
+  --color-gold: var(--gold);
+  --color-sepia: var(--sepia);
+  --color-line: var(--line);
+  --font-display: var(--font-display-stack);
+  --font-body: var(--font-body-stack);
+  --font-mono-caps: var(--font-mono-stack);
+}
+
+:root {
+  /*
+    NOTE ON TYPE: next/font/google can't fetch Google Fonts inside the
+    sandbox this was built in (no network egress to fonts.gstatic.com).
+    Locally, replace these stacks with real next/font imports for
+    Instrument Serif / Cormorant Garamond (display) and Inter / Geist
+    (body) - everything below is already written against these CSS
+    variables, so swapping the font is a one-line change per variable.
+  */
+  --font-display-stack: "Cormorant Garamond", "Iowan Old Style", "Times New Roman", ui-serif, Georgia, serif;
+  --font-body-stack: "Inter", "Segoe UI", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono-stack: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--midnight);
+  scroll-behavior: auto;
+}
+
+body {
+  background: var(--midnight);
+  color: var(--ivory);
+  font-family: var(--font-body-stack);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--saffron);
+  color: var(--midnight);
+}
+
+.font-display {
+  font-family: var(--font-display-stack);
+}
+
+.tracking-tightest {
+  letter-spacing: -0.04em;
+}
+
+.caption {
+  font-family: var(--font-mono-stack);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ivory-dim);
+}
+
+.chapter-rule {
+  border-top: 1px solid var(--line);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(243, 236, 223, 0.2);
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.reduce-motion * {
+  animation: none !important;
+  transition: none !important;
+}
