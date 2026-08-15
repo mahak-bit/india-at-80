@@ -41,7 +41,7 @@ function Tile({
           alt={caption}
           fill
           sizes="(min-width: 640px) 45vw, 90vw"
-          quality={90}
+          quality={75}
           style={objectPosition ? { objectPosition } : undefined}
           className={`object-cover transition-opacity duration-700 ${loaded ? "opacity-100" : "opacity-0"}`}
           onLoad={() => setLoaded(true)}

@@ -112,7 +112,7 @@ function TimelineCard({
               alt={entry.title}
               fill
               sizes="(min-width: 1024px) 30vw, (min-width: 768px) 38vw, 76vw"
-              quality={90}
+              quality={75}
               className={`object-cover transition-opacity duration-700 ${loaded ? "opacity-100" : "opacity-0"}`}
               onLoad={() => setLoaded(true)}
               onError={() => setFailed(true)}
@@ -141,7 +141,7 @@ function TimelineCard({
             alt={entry.title}
             fill
             sizes="100vw"
-            quality={90}
+            quality={75}
             className={`object-cover transition-opacity duration-700 ${loaded ? "opacity-100" : "opacity-0"}`}
             onLoad={() => setLoaded(true)}
             onError={() => setFailed(true)}
